@@ -1,0 +1,45 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #e4e9f2;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .logo {
+    height: 24px;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    color: #68707d;
+  }
+
+  nav ul li {
+    cursor: pointer;
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .cart-icon {
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .profile-icon {
+    height: 24px;
+    cursor: pointer;
+  }
