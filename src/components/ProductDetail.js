@@ -1,5 +1,8 @@
-import React from 'react';
-import productImage from '../assets/image-product-1.jpg';
+import React, { useState } from 'react';
+import productImage1 from '../assets/image-product-1.jpg';
+import productImage2 from '../assets/image-product-2.jpg';
+import productImage3 from '../assets/image-product-3.jpg';
+import productImage4 from '../assets/image-product-4.jpg';
 import thumbnail1 from '../assets/image-product-1-thumbnail.jpg';
 import thumbnail2 from '../assets/image-product-2-thumbnail.jpg';
 import thumbnail3 from '../assets/image-product-3-thumbnail.jpg';
@@ -10,21 +13,47 @@ import cartIcon from '../assets/icon-cart.svg';
 import './ProductDetail.css';
 
 const ProductDetail = () => {
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+
+  const productImages = [productImage1, productImage2, productImage3, productImage4];
+  const thumbnailImages = [thumbnail1, thumbnail2, thumbnail3, thumbnail4];
+
+  const handleThumbnailClick = (index) => {
+    setSelectedImage(index);
+  };
+
+  const handleMainImageClick = () => {
+    setIsLightboxOpen(true);
+  };
+
+  const handleLightboxClose = () => {
+    setIsLightboxOpen(false);
+  };
+
   return (
     <div className="product-detail">
       <div className="product-image">
-        <img src={productImage} alt="Product" />
+        <img src={productImages[selectedImage]} alt="Product" onClick={handleMainImageClick} />
         <div className="thumbnail-gallery">
-          <img src={thumbnail1} alt="Thumbnail 1" />
-          <img src={thumbnail2} alt="Thumbnail 2" />
-          <img src={thumbnail3} alt="Thumbnail 3" />
-          <img src={thumbnail4} alt="Thumbnail 4" />
+          {thumbnailImages.map((thumbnail, index) => (
+            <img
+              key={index}
+              src={thumbnail}
+              alt={`Thumbnail ${index + 1}`}
+              className={selectedImage === index ? 'selected' : ''}
+              onClick={() => handleThumbnailClick(index)}
+            />
+          ))}
         </div>
       </div>
       <div className="product-info">
         <h3>Sneaker Company</h3>
-        <h1>Fall Limited Edition<br/>Sneakers</h1>
-        <p>These low-profile sneakers are your perfect casual<br/> wear companion. Featuring a durable rubber outer<br/>sole, they'll withstand everything the weather can offer.</p>
+        <h1>Fall Limited Edition<br />Sneakers</h1>
+        <p>
+          These low-profile sneakers are your perfect casual<br /> wear companion. Featuring a
+          durable rubber outer<br />sole, they'll withstand everything the weather can offer.
+        </p>
         <div className="price">
           <span className="current-price">$125.00</span>
           <span className="discount">50%</span>
@@ -42,6 +71,14 @@ const ProductDetail = () => {
           </button>
         </div>
       </div>
+      {isLightboxOpen && (
+        <div className="lightbox">
+          <div className="lightbox-content">
+            <img src={productImages[selectedImage]} alt="Product" />
+            <button onClick={handleLightboxClose}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
