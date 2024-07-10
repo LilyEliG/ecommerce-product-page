@@ -16,6 +16,7 @@
   width: 100%;
   max-width: 400px;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .thumbnail-gallery {
@@ -120,4 +121,77 @@ button {
 
 button img {
   filter: invert(1);
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 400px;
+  max-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.lightbox .thumbnail-gallery {
+  margin-top: 0;
+}
+
+.close-button {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.arrow-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 10px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.arrow-button svg {
+  fill: #000;
+  width: 20px;
+  height: 20px;
+}
+
+.arrow-button.previous {
+  left: -40px;
+}
+
+.arrow-button.next {
+  right: -40px;
 }

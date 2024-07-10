@@ -10,6 +10,7 @@ import thumbnail4 from '../assets/image-product-4-thumbnail.jpg';
 import minusIcon from '../assets/icon-minus.svg';
 import plusIcon from '../assets/icon-plus.svg';
 import cartIcon from '../assets/icon-cart.svg';
+import closeIcon from '../assets/icon-close.svg';
 import './ProductDetail.css';
 
 const ProductDetail = () => {
@@ -29,6 +30,14 @@ const ProductDetail = () => {
 
   const handleLightboxClose = () => {
     setIsLightboxOpen(false);
+  };
+
+  const handlePreviousImage = () => {
+    setSelectedImage((prevIndex) => (prevIndex === 0 ? productImages.length - 1 : prevIndex - 1));
+  };
+
+  const handleNextImage = () => {
+    setSelectedImage((prevIndex) => (prevIndex === productImages.length - 1 ? 0 : prevIndex + 1));
   };
 
   return (
@@ -74,8 +83,27 @@ const ProductDetail = () => {
       {isLightboxOpen && (
         <div className="lightbox">
           <div className="lightbox-content">
-            <img src={productImages[selectedImage]} alt="Product" />
-            <button onClick={handleLightboxClose}>Close</button>
+            <img src={productImages[selectedImage]} alt="Product" className="lightbox-image" />
+            <button className="close-button" onClick={handleLightboxClose}>
+              <img src={closeIcon} alt="Close" />
+            </button>
+            <button className="arrow-button previous" onClick={handlePreviousImage}>
+              &lt;
+            </button>
+            <button className="arrow-button next" onClick={handleNextImage}>
+              &gt;
+            </button>
+            <div className="thumbnail-gallery">
+              {thumbnailImages.map((thumbnail, index) => (
+                <img
+                  key={index}
+                  src={thumbnail}
+                  alt={`Thumbnail ${index + 1}`}
+                  className={selectedImage === index ? 'selected' : ''}
+                  onClick={() => handleThumbnailClick(index)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       )}
