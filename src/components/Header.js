@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../assets/logo.svg';
 import cartIcon from '../assets/icon-cart.svg';
 import avatar from '../assets/image-avatar.png';
+import deleteIcon from '../assets/icon-delete.svg';
 import './Header.css';
 
-const Header = () => {
+const Header = ({ cartItems = [], onDeleteItem }) => {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  };
+
+  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+
   return (
     <header>
       <div className="logo-container">
@@ -20,9 +29,43 @@ const Header = () => {
         </nav>
       </div>
       <div className="icons">
-        <img src={cartIcon} alt="Cart" className="cart-icon" />
+        <div className="cart-icon" onClick={toggleCart}>
+          <img src={cartIcon} alt="Cart" />
+          {cartItems.length > 0 && <span className="cart-quantity">{cartItems.length}</span>}
+        </div>
         <img src={avatar} alt="Profile" className="profile-icon" />
       </div>
+      {isCartOpen && (
+        <div className={`cart-dropdown ${isCartOpen ? 'open' : ''}`}>
+          <h3>Cart</h3>
+          <hr />
+          {cartItems.length === 0 ? (
+            <p>Your cart is empty.</p>
+          ) : (
+            <>
+              {cartItems.map((item) => (
+                <div className="cart-item" key={item.id}>
+                  <img src={item.image} alt={item.name} />
+                  <div className="cart-item-details">
+                    <p>{item.name}</p>
+                    <div className="cart-item-price">
+                      <span>${item.price.toFixed(2)} x {item.quantity}</span>
+                      <strong>${(item.price * item.quantity).toFixed(2)}</strong>
+                    </div>
+                  </div>
+                  <img
+                    src={deleteIcon}
+                    alt="Delete"
+                    className="delete-icon"
+                    onClick={() => onDeleteItem(item.id)}
+                  />
+                </div>
+              ))}
+              <p>Total: ${totalPrice.toFixed(2)}</p>
+            </>
+          )}
+        </div>
+      )}
     </header>
   );
 };

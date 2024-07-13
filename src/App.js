@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
 import ProductDetail from './components/ProductDetail';
-import './App.css';
 
 const App = () => {
+  const [cartItems, setCartItems] = useState([]);
+
+  const handleAddToCart = (item) => {
+    setCartItems([...cartItems, item]);
+  };
+
+  const handleDeleteItem = (itemId) => {
+    const updatedItems = cartItems.filter((item) => item.id !== itemId);
+    setCartItems(updatedItems);
+  };
+
   return (
-    <div className="container">
-      <Header />
-      <main>
-        <ProductDetail />
-      </main>
+    <div>
+      <Header cartItems={cartItems} onDeleteItem={handleDeleteItem} />
+      <ProductDetail onAddToCart={handleAddToCart} />
     </div>
   );
 };
