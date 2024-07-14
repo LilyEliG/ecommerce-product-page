@@ -17,7 +17,7 @@ front-end techniques and solutions to common UI challenges.
 The image gallery adapts to different screen sizes, using CSS media queries 
 and React state management:
 
-jsx
+```jsx
 const handleMainImageClick = () => {
   if (window.innerWidth > 768) {
     setIsLightboxOpen(true);
