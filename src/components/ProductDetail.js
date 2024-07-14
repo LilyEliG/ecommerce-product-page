@@ -11,6 +11,8 @@ import minusIcon from '../assets/icon-minus.svg';
 import plusIcon from '../assets/icon-plus.svg';
 import cartIcon from '../assets/icon-cart.svg';
 import closeIcon from '../assets/icon-close.svg';
+import nextIcon from '../assets/icon-next.svg';
+import previousIcon from '../assets/icon-previous.svg';
 import './ProductDetail.css';
 
 const ProductDetail = ({ onAddToCart }) => {
@@ -26,7 +28,9 @@ const ProductDetail = ({ onAddToCart }) => {
   };
 
   const handleMainImageClick = () => {
-    setIsLightboxOpen(true);
+    if (window.innerWidth > 768) {
+      setIsLightboxOpen(true);
+    }
   };
 
   const handleLightboxClose = () => {
@@ -109,10 +113,10 @@ const ProductDetail = ({ onAddToCart }) => {
               <img src={closeIcon} alt="Close" />
             </button>
             <button className="arrow-button previous" onClick={handlePreviousImage}>
-              &lt;
+              <img src={previousIcon} alt="Previous" />
             </button>
             <button className="arrow-button next" onClick={handleNextImage}>
-              &gt;
+              <img src={nextIcon} alt="Next" />
             </button>
             <div className="thumbnail-gallery">
               {thumbnailImages.map((thumbnail, index) => (

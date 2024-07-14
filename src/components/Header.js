@@ -3,10 +3,13 @@ import logo from '../assets/logo.svg';
 import cartIcon from '../assets/icon-cart.svg';
 import avatar from '../assets/image-avatar.png';
 import deleteIcon from '../assets/icon-delete.svg';
+import menuIcon from '../assets/icon-menu.svg';
+import closeIcon from '../assets/icon-close.svg';
 import './Header.css';
 
 const Header = ({ cartItems = [], onDeleteItem }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
@@ -17,8 +20,10 @@ const Header = ({ cartItems = [], onDeleteItem }) => {
   return (
     <header>
       <div className="logo-container">
+        <img src={menuIcon} alt="Menu" className="menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
         <img src={logo} alt="Sneakers Logo" className="logo" />
-        <nav>
+        <nav className={isMobileMenuOpen ? 'mobile-menu-open' : ''}>
+          <img src={closeIcon} alt="Close" className="close-icon hidden" onClick={() => setIsMobileMenuOpen(false)} />
           <ul>
             <li>Collections</li>
             <li>Men</li>
