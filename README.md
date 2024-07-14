@@ -1,6 +1,6 @@
 # E-commerce Product Page
 
-A responsive e-commerce product page built with React, showcasing advanced 
+Hello! My name is Lily and this project is a challene I did for Frontend Mentor. A responsive e-commerce product page built with React, showcasing advanced 
 front-end techniques and solutions to common UI challenges.
 
 ## Key Features
@@ -9,6 +9,12 @@ front-end techniques and solutions to common UI challenges.
 - Interactive image gallery with lightbox functionality
 - Dynamic price display with discount calculation
 - Quantity selector with add-to-cart functionality
+  
+
+## Links
+- LinkedIn: https://www.linkedin.com/in/lily-eli-goloh-3b3736242/
+- Frontend Mentor Profile: https://www.frontendmentor.io/profile/LilyEliG
+
 
 ## Techniques and Code Snippets
 
