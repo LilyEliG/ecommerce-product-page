@@ -69,6 +69,12 @@ const ProductDetail = ({ onAddToCart }) => {
     <div className="product-detail">
       <div className="product-image">
         <img src={productImages[selectedImage]} alt="Product" onClick={handleMainImageClick} />
+        <button className="arrow-button previous" onClick={handlePreviousImage}>
+          <img src={previousIcon} alt="Previous" />
+        </button>
+        <button className="arrow-button next" onClick={handleNextImage}>
+          <img src={nextIcon} alt="Next" />
+        </button>
         <div className="thumbnail-gallery">
           {thumbnailImages.map((thumbnail, index) => (
             <img
