@@ -15,8 +15,6 @@ const Header = ({ cartItems = [], onDeleteItem }) => {
     setIsCartOpen(!isCartOpen);
   };
 
-  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-
   return (
     <header>
       <div className="logo-container">
