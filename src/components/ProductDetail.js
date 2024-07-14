@@ -94,11 +94,13 @@ const ProductDetail = ({ onAddToCart }) => {
           These low-profile sneakers are your perfect casual<br /> wear companion. Featuring a
           durable rubber outer<br />sole, they'll withstand everything the weather can offer.
         </p>
-        <div className="price">
-          <span className="current-price">$125.00</span>
-          <span className="discount">50%</span>
+        <div className="price-container">
+          <div className="price">
+            <span className="current-price">$125.00</span>
+            <span className="discount">50%</span>
+          </div>
+          <span className="original-price">$250.00</span>
         </div>
-        <span className="original-price">$250.00</span>
         <div className="add-to-cart">
           <div className="quantity">
             <img src={minusIcon} alt="Minus" onClick={() => handleQuantityChange(quantity - 1)} />

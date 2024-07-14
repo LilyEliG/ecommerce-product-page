@@ -55,6 +55,10 @@
   font-size: 14px;
 }
 
+.price-container {
+  margin-bottom: 20px;
+}
+
 .price {
   display: flex;
   align-items: center;
@@ -87,6 +91,7 @@
   align-items: center;
   gap: 20px;
   margin-top: 30px;
+  font-size: 18px;
 }
 
 .quantity {
@@ -315,5 +320,22 @@ button img {
   .nav_links li {
     color: black;
   }
+
+  .price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .price {
+    margin-bottom: 0;
+  }
+
+  .original-price {
+    margin-bottom: 0;
+  }
+
+
 
 }
