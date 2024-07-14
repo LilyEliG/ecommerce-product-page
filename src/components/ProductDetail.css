@@ -230,3 +230,31 @@ button img {
 .arrow-button.next {
   right: -40px;
 }
+
+@media (max-width: 768px) {
+  .product-detail {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .product-image img {
+    max-width: 100%;
+  }
+
+  .thumbnail-gallery {
+    display: none; /* Hide thumbnails on mobile */
+  }
+
+  .product-info {
+    padding: 0 20px;
+  }
+
+  .add-to-cart {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .quantity, button {
+    width: 100%;
+  }
+}

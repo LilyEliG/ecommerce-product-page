@@ -50,7 +50,7 @@ const ProductDetail = ({ onAddToCart }) => {
   const handleAddToCart = () => {
     if (quantity > 0) {
       const item = {
-        id: Date.now(),
+        id: 1,
         name: 'Fall Limited Edition Sneakers',
         price: 125,
         quantity: quantity,

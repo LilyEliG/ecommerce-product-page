@@ -31,7 +31,7 @@ const Header = ({ cartItems = [], onDeleteItem }) => {
       <div className="icons">
         <div className="cart-icon" onClick={toggleCart}>
           <img src={cartIcon} alt="Cart" />
-          {cartItems.length > 0 && <span className="cart-quantity">{cartItems.length}</span>}
+          {cartItems.length > 0 && <span className="cart-quantity">{cartItems[0].quantity}</span>}
         </div>
         <img src={avatar} alt="Profile" className="profile-icon" />
       </div>
@@ -43,25 +43,23 @@ const Header = ({ cartItems = [], onDeleteItem }) => {
             <p>Your cart is empty.</p>
           ) : (
             <>
-              {cartItems.map((item) => (
-                <div className="cart-item" key={item.id}>
-                  <img src={item.image} alt={item.name} />
-                  <div className="cart-item-details">
-                    <p>{item.name}</p>
-                    <div className="cart-item-price">
-                      <span>${item.price.toFixed(2)} x {item.quantity}</span>
-                      <strong>${(item.price * item.quantity).toFixed(2)}</strong>
-                    </div>
+              <div className="cart-item">
+                <img src={cartItems[0].image} alt={cartItems[0].name} />
+                <div className="cart-item-details">
+                  <p>{cartItems[0].name}</p>
+                  <div className="cart-item-price">
+                    <span>${cartItems[0].price.toFixed(2)} x {cartItems[0].quantity}</span>
+                    <strong>${(cartItems[0].price * cartItems[0].quantity).toFixed(2)}</strong>
                   </div>
-                  <img
-                    src={deleteIcon}
-                    alt="Delete"
-                    className="delete-icon"
-                    onClick={() => onDeleteItem(item.id)}
-                  />
                 </div>
-              ))}
-              <p>Total: ${totalPrice.toFixed(2)}</p>
+                <img
+                  src={deleteIcon}
+                  alt="Delete"
+                  className="delete-icon"
+                  onClick={() => onDeleteItem(cartItems[0].id)}
+                />
+              </div>
+              <button className="checkout-button">Checkout</button>
             </>
           )}
         </div>

@@ -50,9 +50,6 @@ nav ul li:hover {
   z-index: 1;
 }
 
-
-
-
 .icons {
   display: flex;
   align-items: center;
@@ -175,7 +172,49 @@ nav ul li:hover {
   cursor: pointer;
 }
 
+.checkout-button {
+  background-color: #ff7d1a;
+  color: black;
+  border: none;
+  padding: 15px 0;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.checkout-button:hover {
+  opacity: 0.8;
+}
+
 .profile-icon:hover {
   border: 2px solid #ff7d1a;
   border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 20px;
+  }
+
+  .logo-container {
+    gap: 20px;
+  }
+
+  nav {
+    display: none; /* Hide the navigation on mobile */
+  }
+
+  .cart-dropdown {
+    width: calc(100% - 40px);
+    right: 20px;
+  }
+
+  .profile-icon {
+    height: 24px;
+  }
 }
