@@ -9,6 +9,12 @@ front-end techniques and solutions to common UI challenges.
 - Interactive image gallery with lightbox functionality
 - Dynamic price display with discount calculation
 - Quantity selector with add-to-cart functionality
+
+## Technologies Used
+
+- React
+- CSS3
+- JavaScript (ES6+)
   
 
 ## Links
