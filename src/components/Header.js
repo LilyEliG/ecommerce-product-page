@@ -20,16 +20,26 @@ const Header = ({ cartItems = [], onDeleteItem }) => {
   return (
     <header>
       <div className="logo-container">
-        <img src={menuIcon} alt="Menu" className="menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+        <img
+          src={menuIcon}
+          alt="Menu"
+          className="menu-icon"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        />
         <img src={logo} alt="Sneakers Logo" className="logo" />
         <nav className={isMobileMenuOpen ? 'mobile-menu-open' : ''}>
-          <img src={closeIcon} alt="Close" className="close-icon hidden" onClick={() => setIsMobileMenuOpen(false)} />
+          <img
+            src={closeIcon}
+            alt="Close"
+            className="close-icon"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
           <ul>
-            <li>Collections</li>
-            <li>Men</li>
-            <li>Women</li>
-            <li>About</li>
-            <li>Contact</li>
+            <li onClick={() => setIsMobileMenuOpen(false)}>Collections</li>
+            <li onClick={() => setIsMobileMenuOpen(false)}>Men</li>
+            <li onClick={() => setIsMobileMenuOpen(false)}>Women</li>
+            <li onClick={() => setIsMobileMenuOpen(false)}>About</li>
+            <li onClick={() => setIsMobileMenuOpen(false)}>Contact</li>
           </ul>
         </nav>
       </div>

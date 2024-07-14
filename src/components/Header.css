@@ -206,6 +206,23 @@ nav ul li:hover {
     gap: 20px;
   }
 
+  nav ul li {
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  nav ul li:hover {
+    color: #ff7d1a;
+    box-shadow: none;
+  }
+
+  nav ul li.active,
+  nav ul li:active {
+    color: black;
+    box-shadow: none;
+  }
+
   .close-icon {
     display: block;
     cursor: pointer;
